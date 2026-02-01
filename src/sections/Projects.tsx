@@ -154,7 +154,7 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative w-full py-24 lg:py-32 bg-white"
+      className="relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
       style={{ perspective: '1000px' }}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -163,11 +163,11 @@ export default function Projects() {
           <div>
             <h2
               ref={titleRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-4"
             >
               开源项目
             </h2>
-            <p className="text-lg text-gray-500 max-w-xl">
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl">
               精选个人开源作品，欢迎Star和Contributing
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function Projects() {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 md:mt-0 inline-flex items-center gap-2 text-black font-medium hover:underline"
+            className="mt-6 md:mt-0 inline-flex items-center gap-2 text-black dark:text-white font-medium hover:underline"
           >
             <Github className="w-5 h-5" />
             查看更多项目
@@ -191,7 +191,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
                 key={project.name}
-                className="project-card group relative bg-white rounded-2xl overflow-hidden cursor-pointer hover:scale-105 hover:-translate-y-2 hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300"
+                className="project-card group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden cursor-pointer hover:scale-105 hover:-translate-y-2 hover:shadow-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -221,15 +221,14 @@ export default function Projects() {
               <div className="p-6">
                 {/* Category & Tags */}
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="px-3 py-1 bg-black text-white text-xs font-medium rounded-full">
+                  <span className="px-3 py-1 bg-black dark:bg-gray-700 text-white text-xs font-medium rounded-full">
                     {project.category}
                   </span>
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`px-3 py-1 text-xs font-medium rounded-full border transition-all duration-300 ${
-                        hoveredIndex === index
-                          ? 'border-black text-black translate-x-0 opacity-100'
+                      className={`px-3 py-1 text-xs font-medium rounded-full border transition-all duration-300 ${hoveredIndex === index
+                          ? 'border-black dark:border-white text-black dark:text-white translate-x-0 opacity-100'
                           : '-translate-x-2 opacity-0'
                       }`}
                       style={{
@@ -242,12 +241,12 @@ export default function Projects() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-2 group-hover:underline">
+                <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white mb-2 group-hover:underline">
                   {project.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm md:text-base line-clamp-2">
+                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base line-clamp-2">
                   {project.description}
                 </p>
               </div>

@@ -143,15 +143,23 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white noise-overlay"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 noise-overlay transition-colors duration-300"
     >
       {/* Background Grid Gradient */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-white to-gray-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800" />
         <div 
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+            opacity: 1
+          }}
+        />
+        <div 
+          className="absolute inset-0 dark:block hidden"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, #374151 1px, transparent 0)`,
             backgroundSize: '40px 40px',
           }}
         />
@@ -172,7 +180,7 @@ export default function Hero() {
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Background gradient */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-200 to-gray-100 shadow-2xl" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-200 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-2xl" />
               
               {/* Avatar image */}
               <img
@@ -223,7 +231,7 @@ export default function Hero() {
             {/* Title */}
             <h2 
               ref={titleRef}
-              className="text-sm md:text-base font-medium text-gray-500 tracking-widest uppercase mb-4 overflow-hidden"
+              className="text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 tracking-widest uppercase mb-4 overflow-hidden"
             >
               {'技术探索者 / Tech Explorer'.split('').map((char, i) => (
                 <span key={i} className="char inline-block">
@@ -235,13 +243,13 @@ export default function Hero() {
             {/* Name */}
             <h1 
               ref={nameRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-6"
             >
-              晴空微雨 <span className="text-gray-400 font-light">/ Morning Rain</span>
+              晴空微雨 <span className="text-gray-400 dark:text-gray-400 font-light">/ Morning Rain</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
               全栈开发者 / 区块链工程师 / 技术爱好者
             </p>
 
@@ -250,7 +258,7 @@ export default function Hero() {
               {techTags.map((tag) => (
                 <span
                   key={tag}
-                  className="tech-tag px-4 py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                  className="tech-tag px-4 py-2 bg-black text-white dark:bg-gray-800 dark:text-white text-sm font-medium rounded-full hover:bg-gray-800 dark:hover:bg-gray-700 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-default"
                 >
                   {tag}
                 </span>
@@ -266,12 +274,12 @@ export default function Hero() {
               {stats.map((stat) => (
                 <div
                     key={stat.label}
-                    className="stat-card flex flex-col items-center p-4 md:p-5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-default"
+                    className="stat-card flex flex-col items-center p-4 md:p-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-default"
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-gray-400 mb-2" />
-                  <span className="text-xl md:text-2xl font-bold text-black">{stat.value}</span>
-                  <span className="text-xs md:text-sm text-gray-500">{stat.label}</span>
+                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-gray-400 dark:text-gray-400 mb-2" />
+                  <span className="text-xl md:text-2xl font-bold text-black dark:text-white">{stat.value}</span>
+                  <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">{stat.label}</span>
                 </div>
               ))}
             </div>
@@ -281,8 +289,8 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-gray-400 to-transparent" />
+        <span className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest">Scroll</span>
+        <div className="w-px h-12 bg-gradient-to-b from-gray-400 dark:from-gray-500 to-transparent" />
       </div>
     </section>
   );

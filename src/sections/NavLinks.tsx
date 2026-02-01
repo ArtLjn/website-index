@@ -136,18 +136,18 @@ export default function NavLinks() {
     <section
       ref={sectionRef}
       id="navlinks"
-      className="relative w-full py-24 lg:py-32 bg-gray-50"
+      className="relative w-full py-24 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-4"
           >
             网站导航
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             探索更多我的在线内容和资源
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function NavLinks() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="nav-link-item group relative flex items-center gap-6 p-6 md:p-8 bg-white rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-300 ease-out"
+              className="nav-link-item group relative flex items-center gap-6 p-6 md:p-8 bg-white dark:bg-gray-700 rounded-2xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-out"
               onMouseMove={(e) => handleMouseMove(e, index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
@@ -179,18 +179,18 @@ export default function NavLinks() {
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <h3 className="text-2xl md:text-3xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
                   {link.title}
                 </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed">
                   {link.description}
                 </p>
               </div>
 
               {/* Arrow */}
-              <div className="flex-shrink-0 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full border border-gray-200 dark:border-gray-500 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all duration-300 shadow-sm group-hover:shadow-md">
                 <svg
-                  className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300"
+                  className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-white transition-colors duration-300"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

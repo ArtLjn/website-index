@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../lib/theme';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,13 +56,13 @@ export default function Navigation() {
   return (
     <>
       <nav
-        ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'py-3 bg-white/90 backdrop-blur-lg shadow-sm'
-            : 'py-6 bg-transparent'
-        }`}
-      >
+          ref={navRef}
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+            isScrolled
+              ? 'py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-sm dark:shadow-gray-800/20'
+              : 'py-6 bg-transparent'
+          }`}
+        >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -68,10 +70,10 @@ export default function Navigation() {
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
               className={`text-xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-black' : 'text-black'
+                isScrolled ? 'text-black dark:text-white' : 'text-black dark:text-white'
               }`}
             >
-              LC<span className="text-gray-400">.</span>
+              LC<span className="text-gray-400 dark:text-gray-500">.</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -83,8 +85,8 @@ export default function Navigation() {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                     isScrolled
-                      ? 'text-gray-600 hover:text-black hover:bg-gray-100'
-                      : 'text-gray-600 hover:text-black hover:bg-white/50'
+                      ? 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-white/50'
                   }`}
                 >
                   {item.label}
@@ -92,14 +94,31 @@ export default function Navigation() {
               ))}
             </div>
 
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className={`hidden md:flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-700/70'
+              }`}
+              aria-label={isDarkMode ? '切换到亮色模式' : '切换到暗色模式'}
+            >
+              {isDarkMode ? (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              )}
+            </button>
+
             {/* CTA Button */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className={`hidden md:inline-flex px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                 isScrolled
-                  ? 'bg-black text-white hover:bg-gray-800'
-                  : 'bg-black text-white hover:bg-gray-800'
+                  ? 'bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700'
+                  : 'bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700'
               }`}
             >
               联系我
@@ -108,12 +127,12 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-gray-600 dark:text-gray-300" />
               )}
             </button>
           </div>
@@ -136,7 +155,7 @@ export default function Navigation() {
 
         {/* Menu Panel */}
         <div
-          className={`absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-out ${isMobileMenuOpen
+          className={`absolute top-20 left-4 right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl dark:shadow-gray-900/50 p-6 transition-all duration-300 ease-out ${isMobileMenuOpen
               ? 'translate-y-0 opacity-100'
               : '-translate-y-4 opacity-0'
             }`}
@@ -147,16 +166,16 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="px-4 py-3 text-lg font-medium text-gray-800 hover:bg-gray-100 rounded-xl transition-colors"
+                className="px-4 py-3 text-lg font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="block w-full px-4 py-3 text-center bg-black text-white font-medium rounded-xl hover:bg-gray-800 transition-colors"
+                className="block w-full px-4 py-3 text-center bg-black text-white dark:bg-gray-700 dark:hover:bg-gray-600 font-medium rounded-xl hover:bg-gray-800 transition-colors"
               >
                 联系我
               </a>

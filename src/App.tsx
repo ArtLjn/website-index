@@ -10,6 +10,7 @@ import CoreStrengths from './sections/CoreStrengths';
 import Projects from './sections/Projects';
 import NavLinks from './sections/NavLinks';
 import Contact from './sections/Contact';
+import { ThemeProvider } from './lib/theme';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -34,31 +35,33 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-white">
-      {/* Navigation */}
-      <Navigation />
+    <ThemeProvider>
+      <div className="relative min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        {/* Navigation */}
+        <Navigation />
 
-      {/* Main Content */}
-      <main className="relative">
-        {/* Hero Section */}
-        <Hero />
+        {/* Main Content */}
+        <main className="relative">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* About Section */}
-        <About />
+          {/* About Section */}
+          <About />
 
-        {/* Core Strengths Section */}
-        <CoreStrengths />
+          {/* Core Strengths Section */}
+          <CoreStrengths />
 
-        {/* Projects Section */}
-        <Projects />
+          {/* Projects Section */}
+          <Projects />
 
-        {/* Nav Links Section */}
-        <NavLinks />
+          {/* Nav Links Section */}
+          <NavLinks />
 
-        {/* Contact & Footer Section */}
-        <Contact />
-      </main>
-    </div>
+          {/* Contact & Footer Section */}
+          <Contact />
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 

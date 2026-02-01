@@ -159,18 +159,18 @@ export default function CoreStrengths() {
     <section
       ref={sectionRef}
       id="strengths"
-      className="relative w-full py-24 lg:py-32 bg-gray-50"
+      className="relative w-full py-24 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-4"
           >
             核心能力
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             持续积累的专业技能，助力项目成功交付
           </p>
         </div>

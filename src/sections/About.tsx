@@ -55,16 +55,36 @@ export default function About() {
             start: 'top 70%',
             end: 'top 30%',
             onEnter: () => {
-              gsap.to(line, { color: '#000', duration: 0.4, ease: 'power2.out' });
+              // Check if dark mode is active
+              const isDarkMode = document.documentElement.classList.contains('dark');
+              gsap.to(line, { 
+                color: isDarkMode ? '#ffffff' : '#000000', 
+                duration: 0.4, 
+                ease: 'power2.out' 
+              });
             },
             onLeave: () => {
-              gsap.to(line, { color: '#666', duration: 0.4, ease: 'power2.out' });
+              gsap.to(line, { 
+                color: '#666666', 
+                duration: 0.4, 
+                ease: 'power2.out' 
+              });
             },
             onEnterBack: () => {
-              gsap.to(line, { color: '#000', duration: 0.4, ease: 'power2.out' });
+              // Check if dark mode is active
+              const isDarkMode = document.documentElement.classList.contains('dark');
+              gsap.to(line, { 
+                color: isDarkMode ? '#ffffff' : '#000000', 
+                duration: 0.4, 
+                ease: 'power2.out' 
+              });
             },
             onLeaveBack: () => {
-              gsap.to(line, { color: '#666', duration: 0.4, ease: 'power2.out' });
+              gsap.to(line, { 
+                color: '#666666', 
+                duration: 0.4, 
+                ease: 'power2.out' 
+              });
             },
           });
         });
@@ -86,7 +106,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative w-full py-24 lg:py-32 bg-white"
+      className="relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
@@ -95,13 +115,13 @@ export default function About() {
             <div className="lg:sticky lg:top-32">
               <h2
                 ref={titleRef}
-                className="text-6xl md:text-7xl lg:text-8xl font-bold text-black tracking-tight"
+                className="text-6xl md:text-7xl lg:text-8xl font-bold text-black dark:text-white tracking-tight"
               >
                 个人
                 <br />
-                <span className="text-gray-300">简介</span>
+                <span className="text-gray-300 dark:text-gray-700">简介</span>
               </h2>
-              <div className="mt-6 w-20 h-1 bg-black" />
+              <div className="mt-6 w-20 h-1 bg-black dark:bg-white" />
             </div>
           </div>
 
@@ -110,7 +130,7 @@ export default function About() {
             <div ref={contentRef} className="space-y-6">
               {paragraphs.map((text, index) => (
                 <div key={index} className="overflow-hidden">
-                  <p className="text-line text-xl md:text-2xl lg:text-3xl font-light text-gray-500 leading-relaxed transition-colors duration-300">
+                  <p className="text-line text-xl md:text-2xl lg:text-3xl font-light text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                     {text}
                   </p>
                 </div>
@@ -129,12 +149,12 @@ export default function About() {
               ].map((item) => (
                 <div
                   key={item.category}
-                  className="p-5 border border-gray-200 rounded-lg hover:border-black hover:bg-black hover:text-white hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
+                  className="p-5 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-black dark:hover:border-white hover:bg-black dark:hover:bg-gray-800 hover:text-white dark:hover:text-white hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <h4 className="text-sm font-medium text-gray-400 group-hover:text-gray-300 mb-2 uppercase tracking-wider">
+                  <h4 className="text-sm font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-300 mb-2 uppercase tracking-wider">
                     {item.category}
                   </h4>
-                  <p className="text-sm font-medium">{item.skills}</p>
+                  <p className="text-sm font-medium text-black dark:text-white">{item.skills}</p>
                 </div>
               ))}
             </div>
