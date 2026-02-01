@@ -1,0 +1,60 @@
+[个人信息]
+昵称: 晴空微雨
+Email: liuw8789@gmail.com
+Gitee: https://gitee.com/morning-ljn
+Github: https://github.com/ArtLjn
+
+[开源项目]
+{
+    title: "Kratos-Blog",
+    description: "基于go-kratos的微服务博客",
+    url: "https://github.com/ArtLjn/kratos-blog",
+    category: "微服务",
+},
+{
+    title: "Notification",
+    description: "Golang 消息推送工具库 🔧",
+    url: "https://github.com/ArtLjn/Notification",
+    category: "工具库",
+},
+{
+    title: "Heritage",
+    description: "区块链非物质文化遗产数字版权保护平台",
+    url: "https://github.com/ArtLjn/Heritage",
+    category: "区块链",
+},
+{
+    title: "MilkTeaOrder",
+    description: "奶茶点单系统 - 现代化奶茶店铺数字化解决方案",
+    url: "https://github.com/ArtLjn/MilkTeaOrder",
+    category: "餐饮系统",
+},
+{
+    title: "Medical Neighbor Assistant",
+    description: "医邻助手——社区家庭医生问诊管理系统",
+    url: "https://github.com/ArtLjn/Medical-Neighbor-Assistant",
+    category: "医疗系统",
+},
+{
+    title: "SurveyMaster",
+    description: "在线问卷 / 投票系统",
+    url: "https://github.com/ArtLjn/SurveyMaster",
+    category: "问卷系统",
+},
+
+[网页导航]
+{
+    title: "个人博客",
+    description: "记录一些技术笔记和经验分享",
+    url: "https://blog.lllcnm.cn",
+    category: "博客",
+},
+{
+    title: "TikTok平台",
+    description: "TikTok 电商管理平台",
+    url: "https://tiktok.lllcnm.cn",
+    category: "电商平台",
+}
+
+[skill-tag]
+Go,Java,区块链,微服务,多模态AI,运维
