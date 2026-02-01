@@ -91,20 +91,59 @@ export default function Contact() {
         backgroundPosition: '0 0, 40px 60px, 130px 270px, 70px 100px'
       }}
     >
-      {/* Starry sky overlay */}
+      {/* Enhanced starry sky overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-80 pointer-events-none" />
+      
+      {/* Static stars background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 150 }).map((_, i) => (
+          <div
+            key={`static-${i}`}
+            className="absolute rounded-full bg-white"
+            style={{
+              width: Math.random() * 2 + 1 + 'px',
+              height: Math.random() * 2 + 1 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              opacity: Math.random() * 0.6 + 0.1
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Twinkling stars */}
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: 100 }).map((_, i) => (
           <div
-            key={i}
-            className="absolute rounded-full bg-white animate-pulse"
+            key={`twinkle-${i}`}
+            className="absolute rounded-full bg-white"
             style={{
               width: Math.random() * 3 + 1 + 'px',
               height: Math.random() * 3 + 1 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
               opacity: Math.random() * 0.8 + 0.2,
-              animationDuration: Math.random() * 3 + 2 + 's'
+              animation: `twinkle ${Math.random() * 4 + 2}s infinite ease-in-out`,
+              animationDelay: Math.random() * 2 + 's'
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Moving stars */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={`moving-${i}`}
+            className="absolute rounded-full bg-white"
+            style={{
+              width: Math.random() * 2 + 1 + 'px',
+              height: Math.random() * 2 + 1 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              opacity: Math.random() * 0.7 + 0.3,
+              animation: `moveStar ${Math.random() * 20 + 10}s linear infinite`,
+              animationDelay: Math.random() * 5 + 's'
             }}
           />
         ))}

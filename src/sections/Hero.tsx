@@ -182,8 +182,8 @@ export default function Hero() {
               />
               
               {/* Enhanced Glow effect with multiple layers */}
-              <div className="absolute -inset-4 transform rotate-45 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 opacity-30 blur-xl animate-pulse" style={{ animationDuration: '3s' }} />
-              <div className="absolute -inset-3 transform rotate-45 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 opacity-20 blur-lg animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
+              <div className="absolute -inset-4 transform rotate-45 bg-gradient-to-r from-orange-500 via-yellow-500 to-red-500 opacity-30 blur-xl animate-pulse" style={{ animationDuration: '3s' }} />
+              <div className="absolute -inset-3 transform rotate-45 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 opacity-20 blur-lg animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
               
               {/* Animated particle dots */}
               <div className="absolute inset-0 rounded-full overflow-hidden">
@@ -194,7 +194,7 @@ export default function Hero() {
                     style={{
                       left: `${Math.random() * 100}%`,
                       top: `${Math.random() * 100}%`,
-                      boxShadow: '0 0 4px 2px rgba(100, 149, 237, 0.7)',
+                      boxShadow: '0 0 4px 2px rgba(255, 165, 0, 0.7)',
                       animation: `pulse ${2 + Math.random() * 2}s infinite`,
                       animationDelay: `${Math.random() * 2}s`,
                     }}
@@ -205,15 +205,15 @@ export default function Hero() {
               {/* Enhanced decorative diamond rings with rotation animation */}
               <div className="absolute -inset-4 transform rotate-45 border-2 border-gray-200 opacity-50 animate-spin-slow" style={{ animationDuration: '20s', animationTimingFunction: 'linear' }} />
               <div className="absolute -inset-8 transform rotate-45 border border-gray-100 opacity-30 animate-spin-slow-reverse" style={{ animationDuration: '25s', animationTimingFunction: 'linear' }} />
-              <div className="absolute -inset-6 transform rotate-45 border border-blue-200 opacity-20 animate-spin-slow" style={{ animationDuration: '30s', animationTimingFunction: 'linear' }} />
+              <div className="absolute -inset-6 transform rotate-45 border border-orange-200 opacity-20 animate-spin-slow" style={{ animationDuration: '30s', animationTimingFunction: 'linear' }} />
               
               {/* Inner diamond rings with gradient border */}
               <div className="absolute -inset-2 transform rotate-45 border border-white/80 opacity-40" />
-              <div className="absolute -inset-1 transform rotate-45 border border-gradient-to-r from-blue-400 to-purple-500 opacity-60" style={{ borderImage: 'linear-gradient(45deg, #60a5fa, #a855f7) 1' }} />
+              <div className="absolute -inset-1 transform rotate-45 border border-gradient-to-r from-orange-400 to-red-500 opacity-60" style={{ borderImage: 'linear-gradient(45deg, #f97316, #ef4444) 1' }} />
               
               {/* Interactive ripple effect */}
               <div className="absolute inset-0 transform rotate-45 overflow-hidden pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse" style={{ animationDuration: '5s' }} />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-yellow-500/10 to-red-500/10 animate-pulse" style={{ animationDuration: '5s' }} />
               </div>
             </div>
           </div>

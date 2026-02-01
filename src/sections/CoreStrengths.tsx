@@ -78,18 +78,20 @@ export default function CoreStrengths() {
           }
         );
 
-        // Horizontal expand on scroll
+        // 移除滚动时的水平扩展效果，避免生硬的宽度变化
+        // 改为使用更平滑的缩放动画
         ScrollTrigger.create({
           trigger: cardsRef.current,
           start: 'top 60%',
           end: 'bottom 40%',
           scrub: true,
           onUpdate: (self) => {
-            const spacing = self.progress * 40;
-            cards.forEach((card) => {
-              // 直接修改style属性，避免每次都创建新的GSAP实例
-              (card as HTMLElement).style.marginLeft = `${spacing / 2}px`;
-              (card as HTMLElement).style.marginRight = `${spacing / 2}px`;
+            // 使用缩放代替margin变化，实现更平滑的视觉效果
+            const scale = 1 + self.progress * 0.05;
+            gsap.to(cards, {
+              scale: scale,
+              duration: 0.3,
+              ease: 'power2.out'
             });
           },
         });
@@ -102,8 +104,32 @@ export default function CoreStrengths() {
   // Icon SVG stroke animation on hover
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
-    const card = cardsRef.current?.querySelectorAll('.strength-card')[index];
-    const icon = card?.querySelector('.strength-icon');
+    const cards = cardsRef.current?.querySelectorAll('.strength-card');
+    if (cards) {
+      // 平滑展开当前卡片
+      gsap.to(cards[index], {
+        flex: 3,
+        scale: 1.05,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+      
+      // 平滑收缩其他卡片
+      cards.forEach((card, i) => {
+        if (i !== index) {
+          gsap.to(card, {
+            flex: 0.8,
+            opacity: 0.7,
+            duration: 0.6,
+            ease: 'power2.out'
+          });
+        }
+      });
+    }
+    
+    // 图标动画
+    const icon = cardsRef.current?.querySelectorAll('.strength-icon')[index];
     if (icon) {
       gsap.fromTo(
         icon,
@@ -111,6 +137,22 @@ export default function CoreStrengths() {
         { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }
       );
     }
+  };
+  
+  // Mouse leave handler with smooth animation
+  const handleMouseLeave = () => {
+    const cards = cardsRef.current?.querySelectorAll('.strength-card');
+    if (cards) {
+      // 平滑恢复所有卡片
+      gsap.to(cards, {
+        flex: 1,
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+    }
+    setHoveredIndex(null);
   };
 
   return (
@@ -136,22 +178,17 @@ export default function CoreStrengths() {
         {/* Cards */}
         <div
           ref={cardsRef}
-          className="flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-0"
+          className="flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-2 px-4"
         >
           {strengths.map((strength, index) => (
             <div
               key={strength.title}
-              className={`strength-card relative flex-1 min-w-0 bg-black text-white rounded-2xl p-6 md:p-8 mx-0 md:-mx-2 transition-all duration-300 ease-out cursor-pointer hover:shadow-2xl ${hoveredIndex === index
-                  ? 'flex-[3] z-10 scale-105'
-                  : hoveredIndex !== null
-                  ? 'flex-[0.8] opacity-70'
-                  : 'flex-1'
-              }`}
+              className="strength-card relative flex-1 min-w-0 bg-black text-white rounded-2xl p-6 md:p-8 mx-2 md:mx-1 cursor-pointer hover:shadow-2xl"
               style={{
-                transform: `rotate(${(index - 1.5) * 1.5}deg)`,
+                transform: `rotate(${(index - 1.5) * 1}deg)`,
               }}
               onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Glass border effect */}
               <div className="absolute inset-0 rounded-2xl border border-white/10 pointer-events-none" />
