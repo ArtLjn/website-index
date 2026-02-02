@@ -193,21 +193,40 @@ export default function Hero() {
               <div className="absolute -inset-4 transform rotate-45 bg-gradient-to-r from-orange-500 via-yellow-500 to-red-500 opacity-30 blur-xl animate-pulse" style={{ animationDuration: '3s' }} />
               <div className="absolute -inset-3 transform rotate-45 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 opacity-20 blur-lg animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
               
-              {/* Animated particle dots */}
+              {/* Cancer constellation dots */}
               <div className="absolute inset-0 rounded-full overflow-hidden">
-                {[...Array(8)].map((_, i) => (
+                {/* Cancer constellation main stars */}
+                {[
+                  { left: 30, top: 40 }, // α Cancri (Acubens)
+                  { left: 70, top: 30 }, // β Cancri (Tarf)
+                  { left: 45, top: 25 }, // γ Cancri (Asellus Borealis)
+                  { left: 55, top: 35 }, // δ Cancri (Asellus Australis)
+                  { left: 20, top: 60 }, // ε Cancri (Minkar)
+                  { left: 60, top: 65 }, // ζ Cancri
+                  { left: 40, top: 75 }, // η Cancri
+                  { left: 80, top: 50 }, // θ Cancri
+                ].map((star, i) => (
                   <div
                     key={i}
                     className="absolute w-1 h-1 bg-white rounded-full"
                     style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
+                      left: `${star.left}%`,
+                      top: `${star.top}%`,
                       boxShadow: '0 0 4px 2px rgba(255, 165, 0, 0.7)',
-                      animation: `pulse ${2 + Math.random() * 2}s infinite`,
-                      animationDelay: `${Math.random() * 2}s`,
+                      animation: `pulse ${2 + (i % 3)}s infinite`,
+                      animationDelay: `${i * 0.3}s`,
                     }}
                   />
                 ))}
+                {/* Connecting lines for Cancer constellation */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                  <path
+                    d="M30,40 L45,25 L55,35 L70,30 L80,50 L60,65 L40,75 L20,60 L30,40"
+                    stroke="rgba(255, 165, 0, 0.3)"
+                    strokeWidth="0.5"
+                    fill="none"
+                  />
+                </svg>
               </div>
               
               {/* Enhanced decorative diamond rings with rotation animation */}
