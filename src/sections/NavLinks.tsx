@@ -14,6 +14,13 @@ const navLinks = [
     color: 'from-blue-500 to-cyan-500',
   },
   {
+    title: 'MinimalBlog',
+    description: '极简博客，静态全托管主题网站',
+    icon: BookOpen,
+    href: 'http://minimalblog.lllcnm.cn',
+    color: 'from-green-500 to-emerald-500',
+  },
+  {
     title: 'TikTok平台',
     description: 'TikTok 电商管理平台',
     icon: Layers,
