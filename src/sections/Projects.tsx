@@ -154,7 +154,7 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="section relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
       style={{ perspective: '1000px' }}
     >
       <div className="max-w-7xl mx-auto px-6">

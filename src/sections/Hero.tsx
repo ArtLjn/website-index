@@ -23,47 +23,77 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Avatar entrance animation
-      gsap.fromTo(
+      // Create a timeline for sequential animations
+      const timeline = gsap.timeline({ ease: 'power2.out' });
+
+      // Avatar entrance animation - subtle fade in and lift
+      timeline.fromTo(
         avatarRef.current,
-        { scale: 0.8, rotation: -5, opacity: 0 },
-        { scale: 1, rotation: 0, opacity: 1, duration: 1.2, ease: 'expo.out' }
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.0, ease: 'power2.out' },
+        0
       );
 
-      // Title character animation
+      // Title character animation - subtle lift and fade in
       if (titleRef.current) {
         const chars = titleRef.current.querySelectorAll('.char');
-        gsap.fromTo(
+        timeline.fromTo(
           chars,
-          { y: '100%', opacity: 0 },
-          { y: '0%', opacity: 1, duration: 0.6, stagger: 0.02, ease: 'expo.out', delay: 0.2 }
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out' },
+          0.2
         );
       }
 
-      // Name animation
-      gsap.fromTo(
+      // Name animation - subtle lift and fade in
+      timeline.fromTo(
         nameRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out', delay: 0.4 }
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' },
+        0.4
       );
 
-      // Stats cards 3D flip animation
-      if (statsRef.current) {
-        const cards = statsRef.current.querySelectorAll('.stat-card');
-        gsap.fromTo(
-          cards,
-          { rotateX: 90, opacity: 0 },
-          { rotateX: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)', delay: 0.5 }
+      // Description animation (added ref for description)
+      const descriptionRef = nameRef.current?.nextElementSibling as HTMLElement;
+      if (descriptionRef) {
+        timeline.fromTo(
+          descriptionRef,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' },
+          0.6
         );
       }
 
-      // Tags animation
+      // Tech Tags animation - subtle lift and fade in
       if (tagsRef.current) {
         const tags = tagsRef.current.querySelectorAll('.tech-tag');
-        gsap.fromTo(
+        timeline.fromTo(
           tags,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(2)', delay: 0.7 }
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
+          0.8
+        );
+      }
+
+      // Stats cards animation - subtle lift and fade in
+      if (statsRef.current) {
+        const cards = statsRef.current.querySelectorAll('.stat-card');
+        timeline.fromTo(
+          cards,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out' },
+          1.0
+        );
+      }
+
+      // Scroll Indicator animation
+      const scrollIndicator = sectionRef.current?.querySelector('.absolute.bottom-8') as HTMLElement;
+      if (scrollIndicator) {
+        timeline.fromTo(
+          scrollIndicator,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' },
+          1.2
         );
       }
 
@@ -143,7 +173,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 noise-overlay transition-colors duration-300"
+      className="section relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 noise-overlay transition-colors duration-300"
     >
       {/* Background Grid Gradient */}
       <div className="absolute inset-0 opacity-30">

@@ -106,7 +106,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="section relative w-full py-24 lg:py-32 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">

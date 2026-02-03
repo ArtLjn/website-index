@@ -79,7 +79,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative w-full py-24 lg:py-32 bg-black text-white overflow-hidden"
+      className="section relative w-full py-24 lg:py-32 bg-black text-white overflow-hidden"
       style={{
         backgroundImage: `
           radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
+import { AnimationUtils, ScrollAnimations } from './lib/animations';
 
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
@@ -24,10 +25,26 @@ function App() {
     ScrollTrigger.refresh();
 
     // Handle reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      gsap.globalTimeline.timeScale(0);
-    }
+    AnimationUtils.disableAnimationsIfReducedMotion();
+
+    // Set up scroll animations for sections
+    ScrollAnimations.animateOnScroll('.section', {
+      duration: 0.6,
+      ease: 'power2.out',
+      y: 30,
+    });
+
+    // Set up stagger animations for lists and grids
+    ScrollAnimations.animateOnScroll('.grid > *', {
+      duration: 0.5,
+      ease: 'power2.out',
+      y: 20,
+      stagger: 0.1,
+    });
+
+    // Apply micro interactions to buttons and cards
+    ScrollAnimations.applyButtonMicroInteractions();
+    ScrollAnimations.applyCardMicroInteractions();
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
