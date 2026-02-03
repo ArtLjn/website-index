@@ -36,10 +36,10 @@ Github: https://github.com/ArtLjn
     category: "医疗系统",
 },
 {
-    title: "SurveyMaster",
-    description: "在线问卷 / 投票系统",
-    url: "https://github.com/ArtLjn/SurveyMaster",
-    category: "问卷系统",
+    title: "MinimalBlog",
+    description: "现代化个人博客系统，基于 React + TypeScript + Vite 构建",
+    url: "https://github.com/ArtLjn/MinimalBlog",
+    category: "博客系统",
 },
 
 [网页导航]

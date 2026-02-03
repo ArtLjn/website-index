@@ -34,7 +34,7 @@ const projects = [
     name: 'MilkTeaOrder',
     category: '餐饮系统',
     description: '奶茶点单系统 - 现代化奶茶店铺数字化解决方案',
-    image: '/project-survey.jpg',
+    image: '/project-vue.jpg',
     link: 'https://github.com/ArtLjn/MilkTeaOrder',
     tags: ['餐饮系统', '点单系统', '数字化'],
   },
@@ -47,12 +47,12 @@ const projects = [
     tags: ['医疗系统', '问诊管理', '社区'],
   },
   {
-    name: 'SurveyMaster',
-    category: '问卷系统',
-    description: '在线问卷 / 投票系统',
+    name: 'MinimalBlog',
+    category: '博客系统',
+    description: '现代化个人博客系统，基于 React + TypeScript + Vite 构建',
     image: '/project-survey.jpg',
-    link: 'https://github.com/ArtLjn/SurveyMaster',
-    tags: ['问卷系统', '投票系统', '在线'],
+    link: 'https://github.com/ArtLjn/MinimalBlog',
+    tags: ['博客系统', 'React', 'TypeScript', 'Vite'],
   },
 ];
 
