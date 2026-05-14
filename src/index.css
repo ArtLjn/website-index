@@ -152,6 +152,39 @@
   }
 }
 
+/* Starry Night Theme */
+@layer utilities {
+  .night-sky-gradient {
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(180, 180, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(120, 100, 180, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 30%, rgba(100, 120, 180, 0.1) 0%, transparent 40%),
+      linear-gradient(to bottom, #0a0a1a 0%, #1a1a3a 30%, #2d1f3d 60%, #0a0a0a 100%);
+  }
+
+  .moon-glow {
+    position: absolute;
+    top: 8%;
+    right: 12%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(220, 220, 255, 0.3) 0%, rgba(200, 200, 255, 0.15) 30%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+
+  .moon-core {
+    position: absolute;
+    top: 12%;
+    right: 16%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #fffaf0 0%, #e8e8f0 50%, #d0d0e0 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(220, 220, 255, 0.4), 0 0 80px rgba(200, 200, 255, 0.2);
+  }
+}
+
 @keyframes float-cloud {
   from { transform: translateX(-200px); }
   to { transform: translateX(calc(100vw + 200px)); }
