@@ -173,28 +173,8 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="section relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 noise-overlay transition-colors duration-300"
+      className="section relative min-h-screen w-full flex items-center justify-center overflow-hidden transition-colors duration-300"
     >
-      {/* Background Grid Gradient */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800" />
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-            opacity: 1
-          }}
-        />
-        <div 
-          className="absolute inset-0 dark:block hidden"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #374151 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
-
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Avatar */}
