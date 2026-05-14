@@ -7,52 +7,52 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    name: 'Kratos-Blog',
-    category: '微服务',
-    description: '基于go-kratos的微服务博客',
+    name: 'Ocean CLI',
+    category: 'AI 工具链',
+    description: 'Enhanced Claude Code CLI — 多模型切换、结构化记忆（SQLite+FTS5）、多 Agent 协作与 Skill 系统',
     image: '/project-go.jpg',
-    link: 'https://github.com/ArtLjn/kratos-blog',
-    tags: ['Go', 'Kratos', '微服务'],
+    link: 'https://github.com/ArtLjn/ocean-cc-cli',
+    tags: ['TypeScript', 'LLM', 'CLI'],
   },
   {
-    name: 'Notification',
-    category: '工具库',
-    description: 'Golang 消息推送工具库 🔧',
+    name: 'Ocean Feishu MCP',
+    category: 'MCP Server',
+    description: 'Claude Code × 飞书双向消息桥 — 访问控制、权限中继与自然语言判决',
     image: '/project-vue.jpg',
-    link: 'https://github.com/ArtLjn/Notification',
-    tags: ['Go', '工具库', '消息推送'],
+    link: 'https://github.com/ArtLjn/ocean-feishu-mcp',
+    tags: ['TypeScript', '飞书', 'MCP'],
   },
   {
-    name: 'Heritage',
-    category: '区块链',
-    description: '区块链非物质文化遗产数字版权保护平台',
-    image: '/project-blockchain.jpg',
-    link: 'https://github.com/ArtLjn/Heritage',
-    tags: ['区块链', '数字版权', '非遗'],
-  },
-  {
-    name: 'MilkTeaOrder',
-    category: '餐饮系统',
-    description: '奶茶点单系统 - 现代化奶茶店铺数字化解决方案',
-    image: '/project-vue.jpg',
-    link: 'https://github.com/ArtLjn/MilkTeaOrder',
-    tags: ['餐饮系统', '点单系统', '数字化'],
-  },
-  {
-    name: 'Medical Neighbor Assistant',
-    category: '医疗系统',
-    description: '医邻助手——社区家庭医生问诊管理系统',
-    image: '/project-go.jpg',
-    link: 'https://github.com/ArtLjn/Medical-Neighbor-Assistant',
-    tags: ['医疗系统', '问诊管理', '社区'],
-  },
-  {
-    name: 'MinimalBlog',
-    category: '博客系统',
-    description: '现代化个人博客系统，基于 React + TypeScript + Vite 构建',
+    name: 'Ocean Dock',
+    category: 'MCP Server',
+    description: 'Session Manager & MCP Server — 会话管理、自动化 Hooks、12 个 MCP 工具',
     image: '/project-survey.jpg',
-    link: 'https://github.com/ArtLjn/MinimalBlog',
-    tags: ['博客系统', 'React', 'TypeScript', 'Vite'],
+    link: 'https://github.com/ArtLjn/ocean-dock',
+    tags: ['Python', 'MCP', 'Agent'],
+  },
+  {
+    name: 'NSQA',
+    category: '学术问答',
+    description: 'Neural-Symbolic QA — 混合检索 + 知识图谱 + 多跳推理的学术论文问答系统',
+    image: '/project-blockchain.jpg',
+    link: 'https://github.com/ArtLjn/NSQA',
+    tags: ['Python', '知识图谱', 'NLP'],
+  },
+  {
+    name: 'Skillify',
+    category: 'LLM 框架',
+    description: 'LLM Skill 轻量级管理框架 — 注册 · 匹配 · 执行 · 校验',
+    image: '/project-blockchain.jpg',
+    link: 'https://github.com/ArtLjn/skillify',
+    tags: ['Python', 'LLM', '框架'],
+  },
+  {
+    name: 'DiskPulse',
+    category: 'macOS 工具',
+    description: 'macOS 智能磁盘空间分析器 — 脏数据检测、重复文件查找、安全清理，SwiftUI 构建',
+    image: '/project-go.jpg',
+    link: 'https://github.com/ArtLjn/DiskPulse',
+    tags: ['Swift', 'SwiftUI', 'macOS'],
   },
 ];
 
@@ -172,7 +172,7 @@ export default function Projects() {
             </p>
           </div>
           <a
-            href="https://github.com"
+            href="https://github.com/ArtLjn"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 md:mt-0 inline-flex items-center gap-2 text-black dark:text-white font-medium hover:underline"

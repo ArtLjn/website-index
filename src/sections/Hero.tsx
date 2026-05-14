@@ -6,12 +6,12 @@ import { Code2, Briefcase, Award } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { icon: Briefcase, value: '8+', label: '技术栈' },
-  { icon: Code2, value: '15+', label: '项目经验' },
-  { icon: Award, value: '6+', label: '开源贡献' },
+  { icon: Briefcase, value: '8+', label: 'AI 项目' },
+  { icon: Code2, value: '20+', label: '开源贡献' },
+  { icon: Award, value: '12+', label: 'MCP 工具' },
 ];
 
-const techTags = ['Go', 'Java', '区块链', '微服务', '多模态AI', '运维'];
+const techTags = ['LLM 应用', 'Agent 开发', 'MCP 协议', 'RAG', '知识图谱', '全栈'];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -279,7 +279,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
-              全栈开发者 / 区块链工程师 / 技术爱好者
+              AI 工程师 / LLM 应用开发 / 全栈工程师
             </p>
 
             {/* Tech Tags */}
