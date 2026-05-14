@@ -1,2 +1,3 @@
-// Background components barrel file
-// Will be populated as components are created
+export { BackgroundLayer } from './BackgroundLayer';
+export { SkyRainBackground } from './SkyRainBackground';
+export { StarryNightBackground } from './StarryNightBackground';
