@@ -151,3 +151,8 @@
     pointer-events: none;
   }
 }
+
+@keyframes float-cloud {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(calc(100vw + 200px)); }
+}
