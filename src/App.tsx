@@ -12,6 +12,7 @@ import Projects from './sections/Projects';
 import NavLinks from './sections/NavLinks';
 import Contact from './sections/Contact';
 import { ThemeProvider } from './lib/theme';
+import { BackgroundLayer } from './components/background';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -53,7 +54,8 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <BackgroundLayer />
+      <div className="relative min-h-screen transition-colors duration-300">
         {/* Navigation */}
         <Navigation />
 
