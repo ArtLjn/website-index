@@ -1,4 +1,5 @@
 import { Cloud } from './Cloud';
+import { RainDrops } from './RainDrops';
 
 export function SkyRainBackground() {
   return (
@@ -9,6 +10,7 @@ export function SkyRainBackground() {
       <Cloud top="18%" left="-200px" size="sm" duration={25} opacity={0.75} delay={15} />
       <Cloud top="30%" left="-200px" size="lg" duration={40} opacity={0.65} delay={20} />
       <Cloud top="8%" left="-200px" size="md" duration={32} opacity={0.7} delay={25} />
+      <RainDrops />
     </div>
   );
 }
