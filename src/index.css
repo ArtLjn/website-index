@@ -131,3 +131,23 @@
   background: #000;
   color: #fff;
 }
+
+/* Sky Rain Theme */
+@layer utilities {
+  .sky-gradient {
+    background:
+      radial-gradient(circle at 20% 15%, rgba(255, 223, 186, 0.6) 0%, rgba(255, 223, 186, 0.2) 20%, transparent 50%),
+      radial-gradient(circle at 20% 15%, rgba(255, 200, 150, 0.4) 0%, transparent 40%),
+      linear-gradient(to bottom, #4A90E2 0%, #87CEEB 20%, #B0E0E6 50%, #E0F6FF 75%, #FFF5E6 100%);
+  }
+
+  .wet-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
